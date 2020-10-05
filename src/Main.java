@@ -14,7 +14,7 @@ public class Main {
 	public static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	public static List<Gerador> geradores = new ArrayList<>();
 	public static int id = 0;
-	public static String localPadrao = "C:\dados.txt";
+	public static String localPadrao = "C:\\dados.txt";
 
 	public static void main(String[] args) throws HeadlessException, ParseException {
 
