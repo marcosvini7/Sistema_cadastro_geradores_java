@@ -14,7 +14,7 @@ public class Main {
 	public static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	public static List<Gerador> geradores = new ArrayList<>();
 	public static int id = 0;
-	public static String localPadrao = "C:\\Users\\Irene\\Documents\\Sistema cadastro Gerador\\dados.txt";
+	public static String localPadrao = "C:\dados.txt";
 
 	public static void main(String[] args) throws HeadlessException, ParseException {
 
@@ -26,8 +26,8 @@ public class Main {
 	public static void menu() throws HeadlessException, ParseException {
 		try {
 			int resposta = Integer.parseInt(JOptionPane.showInputDialog("------ Luiz do Gerador ------\n\n"
-					+ "1 - Cadastrar Gerador \n2 - Listar Geradores \n3 - Listar Geradores DisponÌveis \n4 - Listar Geradores Alugados"
-					+ "\n5 - Listar Todos Geradores" + "\n6 - ConfiguraÁıes \n7 - Sair"));
+					+ "1 - Cadastrar Gerador \n2 - Listar Geradores \n3 - Listar Geradores Dispon√≠veis \n4 - Listar Geradores Alugados"
+					+ "\n5 - Listar Todos Geradores" + "\n6 - Configura√ß√µes \n7 - Sair"));
 			switch (resposta) {
 			case 1:
 				cadastrarGerador();
@@ -58,7 +58,7 @@ public class Main {
 				System.exit(0);
 
 			default:
-				JOptionPane.showMessageDialog(null, "OpÁ„o inv·lida!");
+				JOptionPane.showMessageDialog(null, "Op√ß√£o inv√°lida!");
 				menu();
 			}
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class Main {
 	public static void menuConfiguracao() throws HeadlessException, ParseException {
 		try {
 			int escolha = Integer.parseInt(JOptionPane.showInputDialog(
-					"------ ConfiguraÁıes ------\n\n1 - Fazer Backup \n2 - Restaurar dados \n3 - Apagar todos os dados \n4 - Voltar"));
+					"------ Configura√ß√µes ------\n\n1 - Fazer Backup \n2 - Restaurar dados \n3 - Apagar todos os dados \n4 - Voltar"));
 			switch (escolha) {
 			case 1:
 				backup();
@@ -89,7 +89,7 @@ public class Main {
 				break;
 
 			default:
-				JOptionPane.showMessageDialog(null, "OpÁ„o inv·lida!");
+				JOptionPane.showMessageDialog(null, "Op√ß√£o inv√°lida!");
 				menuConfiguracao();
 			}
 		} catch (Exception e) {
@@ -101,19 +101,19 @@ public class Main {
 		try {
 			String marca = JOptionPane.showInputDialog("Marca: ");
 			verificarVazio(marca);
-			String potencia = JOptionPane.showInputDialog("PotÍncia: ");
+			String potencia = JOptionPane.showInputDialog("Pot√™ncia: ");
 			verificarVazio(potencia);
-			Date ano = sdf.parse(JOptionPane.showInputDialog("Data de fabricaÁ„o: "));
+			Date ano = sdf.parse(JOptionPane.showInputDialog("Data de fabrica√ß√£o: "));
 			double valorVenda = Double.parseDouble(JOptionPane.showInputDialog("Valor de venda: R$"));
 			double valorAlguel = Double.parseDouble(JOptionPane.showInputDialog("Valor do aluguel: R$(Dia)"));
 			boolean situacao1;
 			int situacao = Integer
-					.parseInt(JOptionPane.showInputDialog("SituaÁ„o do gerador: " + "\n1 - DisponÌvel \n2 - Alugado"));
+					.parseInt(JOptionPane.showInputDialog("Situa√ß√£o do gerador: " + "\n1 - Dispon√≠vel \n2 - Alugado"));
 			if (situacao == 1) {
 				situacao1 = true;
 			} else
 				situacao1 = false;
-			String descricao = JOptionPane.showInputDialog("DescriÁ„o: ");
+			String descricao = JOptionPane.showInputDialog("Descri√ß√£o: ");
 			verificarVazio(potencia);
 			if (situacao1 == true) {
 				id++;
@@ -136,7 +136,7 @@ public class Main {
 				}
 			}
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Dados inv·lidos!");
+			JOptionPane.showMessageDialog(null, "Dados inv√°lidos!");
 			menu();
 		}
 		menu();
@@ -144,7 +144,7 @@ public class Main {
 
 	public static void verificarVazio(String item) throws HeadlessException, ParseException {
 		if (item.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Dados inv·lidos!");
+			JOptionPane.showMessageDialog(null, "Dados inv√°lidos!");
 			menu();
 		}
 	}
@@ -152,17 +152,17 @@ public class Main {
 	public static void listarGeradores() throws HeadlessException, ParseException {
 		try {
 			if (geradores.isEmpty()) {
-				JOptionPane.showMessageDialog(null, "N„o h· geradores cadastrados!");
+				JOptionPane.showMessageDialog(null, "N√£o h√° geradores cadastrados!");
 				menu();
 			} else {
 				StringBuilder sb = new StringBuilder();
 				for (Gerador gerador : geradores) {
-					sb.append("Gerador " + gerador.getId() + "  Marca: " + gerador.getMarca() + "  PotÍncia: "
+					sb.append("Gerador " + gerador.getId() + "  Marca: " + gerador.getMarca() + "  Pot√™ncia: "
 							+ gerador.getPotencia() + "\n");
 				}
 
 				int escolha = Integer
-						.parseInt(JOptionPane.showInputDialog(sb + "\n" + "Digite o Ìndice para ver os detalhes: "));
+						.parseInt(JOptionPane.showInputDialog(sb + "\n" + "Digite o √≠ndice para ver os detalhes: "));
 				escolha--;
 				JOptionPane.showMessageDialog(null, geradores.get(escolha));
 
@@ -171,7 +171,7 @@ public class Main {
 		} catch (NumberFormatException e) {
 			menu();
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Dados inv·lidos!");
+			JOptionPane.showMessageDialog(null, "Dados inv√°lidos!");
 			menu();
 		}
 	}
@@ -186,7 +186,7 @@ public class Main {
 			JOptionPane.showMessageDialog(null, sb);
 		}
 		if (geradores.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "N„o h· geradores cadastrados!");
+			JOptionPane.showMessageDialog(null, "N√£o h√° geradores cadastrados!");
 		}
 
 		menu();
@@ -198,13 +198,13 @@ public class Main {
 
 		for (Gerador gerador : geradores) {
 			if (gerador.isSituacao() == true) {
-				sb.append("Gerador " + gerador.getId() + "  Marca: " + gerador.getMarca() + "  PotÍncia: "
+				sb.append("Gerador " + gerador.getId() + "  Marca: " + gerador.getMarca() + "  Pot√™ncia: "
 						+ gerador.getPotencia() + "\n");
 				estaVazia = false;
 			}
 		}
 		if (estaVazia == true) {
-			JOptionPane.showMessageDialog(null, "N„o h· geradores disponÌveis!");
+			JOptionPane.showMessageDialog(null, "N√£o h√° geradores dispon√≠veis!");
 		} else {
 			JOptionPane.showMessageDialog(null, sb);
 		}
@@ -217,13 +217,13 @@ public class Main {
 
 		for (Gerador gerador : geradores) {
 			if (gerador.isSituacao() == false) {
-				sb.append("Gerador " + gerador.getId() + "  Marca: " + gerador.getMarca() + "  PotÍncia: "
+				sb.append("Gerador " + gerador.getId() + "  Marca: " + gerador.getMarca() + "  Pot√™ncia: "
 						+ gerador.getPotencia() + "\n");
 				estaVazia = false;
 			}
 		}
 		if (estaVazia == true) {
-			JOptionPane.showMessageDialog(null, "N„o h· geradores Alugados!");
+			JOptionPane.showMessageDialog(null, "N√£o h√° geradores Alugados!");
 		} else {
 			JOptionPane.showMessageDialog(null, sb);
 		}
@@ -286,10 +286,10 @@ public class Main {
 
 	public static void backup() throws HeadlessException, ParseException {
 		if (geradores.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "N„o h· dados para realizar o Backup!");
+			JOptionPane.showMessageDialog(null, "N√£o h√° dados para realizar o Backup!");
 			menuConfiguracao();
 		}
-		String local = JOptionPane.showInputDialog("Digite o endereÁo onde deseja fazer o Backup: ");
+		String local = JOptionPane.showInputDialog("Digite o endere√ßo onde deseja fazer o Backup: ");
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(local + "\\dados.txt"))) {
 			for (Gerador gerador : geradores) {
 				bw.write(gerador.print() + "\n");
@@ -298,7 +298,7 @@ public class Main {
 			if (local.isEmpty()) {
 				menuConfiguracao();
 			} else {
-				JOptionPane.showMessageDialog(null, "EndereÁo n„o encontrado!");
+				JOptionPane.showMessageDialog(null, "Endere√ßo n√£o encontrado!");
 				menuConfiguracao();
 			}
 		}
@@ -310,7 +310,7 @@ public class Main {
 		if (!geradores.isEmpty()) {
 			try {
 				int n = Integer.parseInt(JOptionPane
-						.showInputDialog("Seus dados atuais ser„o perdidos!\nDeseja continuar? \n1 - Sim \n2 - N„o"));
+						.showInputDialog("Seus dados atuais ser√£o perdidos!\nDeseja continuar? \n1 - Sim \n2 - N√£o"));
 				if (n != 1) {
 					menuConfiguracao();
 				}
@@ -318,7 +318,7 @@ public class Main {
 				menuConfiguracao();
 			}
 		}
-		String local = JOptionPane.showInputDialog("Digite o endereÁo do arquivo de RestauraÁ„o: ");
+		String local = JOptionPane.showInputDialog("Digite o endere√ßo do arquivo de Restaura√ß√£o: ");
 		try (BufferedReader br = new BufferedReader(new FileReader(local))) {
 			geradores.clear();
 			String linha = br.readLine();
@@ -348,12 +348,12 @@ public class Main {
 			if (local.isEmpty()) {
 				menuConfiguracao();
 			} else {
-				JOptionPane.showMessageDialog(null, "Arquivo n„o encontrado!");
+				JOptionPane.showMessageDialog(null, "Arquivo n√£o encontrado!");
 				menuConfiguracao();
 			}
 		}
 
-		JOptionPane.showMessageDialog(null, "RestauraÁ„o realizada com sucesso!");
+		JOptionPane.showMessageDialog(null, "Restaura√ß√£o realizada com sucesso!");
 		menuConfiguracao();
 	}
 
@@ -361,23 +361,23 @@ public class Main {
 		if (!geradores.isEmpty()) {
 			try {
 				int n = Integer.parseInt(JOptionPane
-						.showInputDialog("Todos os seus dados ser„o perdidos!\nDeseja continuar? \n1 - Sim \n2 - N„o"));
+						.showInputDialog("Todos os seus dados ser√£o perdidos!\nDeseja continuar? \n1 - Sim \n2 - N√£o"));
 				if (n == 1) {
 					geradores.clear();
 					try (BufferedWriter bw = new BufferedWriter(new FileWriter(localPadrao))) {
 						bw.write("");
 					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, "N„o foi possÌvel apagar os dados!");
+						JOptionPane.showMessageDialog(null, "N√£o foi poss√≠vel apagar os dados!");
 						menuConfiguracao();
 					}
-					JOptionPane.showMessageDialog(null, "OperaÁ„o bem sucedida!");
+					JOptionPane.showMessageDialog(null, "Opera√ß√£o bem sucedida!");
 					menuConfiguracao();
 				}
 			} catch (NumberFormatException e) {
 				menuConfiguracao();
 			}
 		} else
-			JOptionPane.showMessageDialog(null, "N„o h· dados salvos!");
+			JOptionPane.showMessageDialog(null, "N√£o h√° dados salvos!");
 		menuConfiguracao();
 	}
 
