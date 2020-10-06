@@ -1,2 +1,2 @@
 # Sistema_cadastro_geradores_java
-Altere o valor da variável "localPadrao" para o endereço em que deseja salvar os dados.
+criar um arquivo de texto e atribuir o caminho do mesmo à variável localPadrao
